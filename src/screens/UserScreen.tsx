@@ -92,9 +92,9 @@ export const UserScreen = ({route, navigation}) => {
 
   const handleSignInWithAPIKeyMode = async () => {
     await VitalCore.configure(
-      'sk_us_QrogkX43BnVs2U0X7sZXbRUP9Y9vz7ugpAgW31EDPlk',
+      VITAL_API_KEY,
       'sandbox',
-      'us',
+      VITAL_REGION,
       true,
     );
     await VitalCore.setUserId(user.user_id);
@@ -139,6 +139,7 @@ export const UserScreen = ({route, navigation}) => {
       </Box>
     );
   };
+  console.log(3333,user.user_id, user.client_user_id);
 
   return (
     <VStack px={4} py={4} space={4}>

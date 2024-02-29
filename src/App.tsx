@@ -26,9 +26,9 @@ import {VitalCore} from '@tryvital/vital-core-react-native';
 // Recommended way is to do this on the backend but for the sake of an example
 // You can do it on the client side
 export const vitalNodeClient = new VitalClient({
-  environment: 'sandbox',
-  api_key: 'sk_us_GeVgA9sFaw-nNS_hWvQuY8cjX0eVuqYbiuTszPaGrd0',
-  region: 'us',
+  environment: "sandbox",
+  api_key: VITAL_API_KEY,
+  region: VITAL_REGION,
 });
 
 const healthEventEmitter = new NativeEventEmitter(VitalHealthReactNativeModule);
