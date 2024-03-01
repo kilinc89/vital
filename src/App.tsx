@@ -10,6 +10,7 @@ import {
   VitalHealth,
   VitalHealthEvents,
   VitalHealthReactNativeModule,
+  HealthConfig,
 } from '@tryvital/vital-health-react-native';
 import {VitalDevicesManager} from '@tryvital/vital-devices-react-native';
 import {NativeEventEmitter, NativeModules} from 'react-native';
@@ -30,6 +31,9 @@ export const vitalNodeClient = new VitalClient({
   api_key: VITAL_API_KEY,
   region: VITAL_REGION,
 });
+
+let config = new HealthConfig();
+config.iOSConfig.backgroundDeliveryEnabled = true;
 
 const healthEventEmitter = new NativeEventEmitter(VitalHealthReactNativeModule);
 
@@ -57,6 +61,7 @@ const App = () => {
 
       // Example: Read BLE Blood Pressure
       // await readBLEBloodPressureMeter(vitalDevicesManager)
+      await VitalHealth.configure(config);
     };
 
     initialize();
